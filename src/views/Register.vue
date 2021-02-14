@@ -4,9 +4,10 @@
       <b-col cols="auto" sm="auto">
         <b-card>
             <b-img fluid :src="require('../assets/LogoCFCnegro.png')" class="pb-5"></b-img>
-            <b-row v-for="item in events" :key="item.id" class="justify-content-center py-3" cols="1">
-              <b-col cols="9">
-                <ServiceSelect :dataEvent="item"/>  
+            <h2>{{title}}</h2>
+            <b-row class="justify-content-center py-3" align-h="center" cols="1">
+              <b-col cols="9" align-self="center">
+                <User/>
               </b-col>
             </b-row>
         </b-card>
@@ -16,33 +17,19 @@
 </template>
 
 <script>
-import ServiceSelect from '@/components/register/ServiceButton.vue'
+import User from '@/components/register/user.vue'
 export default {
 components:{
-    ServiceSelect
+    User
+},
+mounted() {
+    this.title = localStorage.title
+    this.event_id = localStorage.event_id
 },
 data() {
   return {
-    events:[
-      {
-        id:1,
-        title:'Servicio de las 9',
-        places:120,
-        places_kids: 10
-      },
-      {
-        id:2,
-        title:'Servicio de las 11',
-        places:120,
-        places_kids: 10
-      },
-      {
-        id:3,
-        title:'Servicio de las 9',
-        places:120,
-        places_kids: 10
-      },
-    ]
+      event_id: 0,
+      title: '',
   }
 },
 

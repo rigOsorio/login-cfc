@@ -6,7 +6,7 @@
             <b-img fluid :src="require('../assets/LogoCFCnegro.png')" class="pb-5"></b-img>
             <b-row v-for="item in events" :key="item.id" class="justify-content-center py-3" cols="1">
               <b-col cols="9">
-                <ServiceSelect :dataEvent="item"/>  
+                <Login/>  
               </b-col>
             </b-row>
         </b-card>
@@ -16,33 +16,14 @@
 </template>
 
 <script>
-import ServiceSelect from '@/components/register/ServiceButton.vue'
+import Login from '@/components/control panel/login.vue'
 export default {
 components:{
-    ServiceSelect
+    Login
 },
 data() {
   return {
-    events:[
-      {
-        id:1,
-        title:'Servicio de las 9',
-        places:120,
-        places_kids: 10
-      },
-      {
-        id:2,
-        title:'Servicio de las 11',
-        places:120,
-        places_kids: 10
-      },
-      {
-        id:3,
-        title:'Servicio de las 9',
-        places:120,
-        places_kids: 10
-      },
-    ]
+    
   }
 },
 
